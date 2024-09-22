@@ -53,28 +53,39 @@ namespace AppEstadistica
 
         private void button1_Click(object sender, EventArgs e)
         {
+            double SumaX = 0;
+            double SumaY = 0;
+            double SumaXCuadrado = 0;
+            double SumaYCuadrado = 0;
+            double SumaXY = 0;
             for (int i = 0; i < dgvDatos.Rows.Count; i++)
             {
 
                     if (double.TryParse(dgvDatos.Rows[i].Cells[0].Value?.ToString(), out double valorX))
                     {
+                        SumaX = valorX + SumaX;
                         double resultadoX = Math.Pow(valorX, 2);
                         dgvDatos.Rows[i].Cells[2].Value = resultadoX;
+                        SumaXCuadrado = SumaXCuadrado + resultadoX;
                     }
 
 
                     if (double.TryParse(dgvDatos.Rows[i].Cells[1].Value?.ToString(), out double valorY))
                     {
+                        SumaY = valorY + SumaY;
                         double resultadoY = Math.Pow(valorY, 2);
                         dgvDatos.Rows[i].Cells[3].Value = resultadoY;
+                        SumaYCuadrado = SumaYCuadrado + resultadoY;
                     }
 
                 if (double.TryParse(dgvDatos.Rows[i].Cells[0].Value?.ToString(), out double valorX2) && double.TryParse(dgvDatos.Rows[i].Cells[1].Value?.ToString(), out double valorY2)) {
                     double ResultadoXY = valorX2 * valorY2;
+                    SumaXY = SumaXY + ResultadoXY;
                     dgvDatos.Rows[i].Cells[4].Value = ResultadoXY;
                 }
 
             }
+            txtPrueba.Text = Convert.ToString(SumaXY);
         }
     }
 }

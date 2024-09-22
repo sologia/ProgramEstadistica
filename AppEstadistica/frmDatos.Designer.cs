@@ -29,13 +29,14 @@
         private void InitializeComponent()
         {
             dgvDatos = new DataGridView();
-            label1 = new Label();
-            button1 = new Button();
             EjeX = new DataGridViewTextBoxColumn();
             EjeY = new DataGridViewTextBoxColumn();
             X_Cuadrado = new DataGridViewTextBoxColumn();
             Y_Cuadrado = new DataGridViewTextBoxColumn();
             XPORY = new DataGridViewTextBoxColumn();
+            label1 = new Label();
+            button1 = new Button();
+            txtPrueba = new TextBox();
             ((System.ComponentModel.ISupportInitialize)dgvDatos).BeginInit();
             SuspendLayout();
             // 
@@ -54,25 +55,6 @@
             dgvDatos.CellValueChanged += dgvDatos_CellValueChanged;
             dgvDatos.ColumnAdded += dgvDatos_ColumnAdded;
             dgvDatos.RowsAdded += dgvDatos_RowsAdded;
-            // 
-            // label1
-            // 
-            label1.AutoSize = true;
-            label1.Location = new Point(12, 118);
-            label1.Name = "label1";
-            label1.Size = new Size(346, 20);
-            label1.TabIndex = 1;
-            label1.Text = "Por favor, Inserte Los datos del eje X y Y en el Panel";
-            // 
-            // button1
-            // 
-            button1.Location = new Point(385, 114);
-            button1.Name = "button1";
-            button1.Size = new Size(94, 29);
-            button1.TabIndex = 2;
-            button1.Text = "Calcular";
-            button1.UseVisualStyleBackColor = true;
-            button1.Click += button1_Click;
             // 
             // EjeX
             // 
@@ -112,11 +94,38 @@
             XPORY.ReadOnly = true;
             XPORY.Width = 125;
             // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Location = new Point(12, 118);
+            label1.Name = "label1";
+            label1.Size = new Size(346, 20);
+            label1.TabIndex = 1;
+            label1.Text = "Por favor, Inserte Los datos del eje X y Y en el Panel";
+            // 
+            // button1
+            // 
+            button1.Location = new Point(385, 114);
+            button1.Name = "button1";
+            button1.Size = new Size(94, 29);
+            button1.TabIndex = 2;
+            button1.Text = "Calcular";
+            button1.UseVisualStyleBackColor = true;
+            button1.Click += button1_Click;
+            // 
+            // txtPrueba
+            // 
+            txtPrueba.Location = new Point(755, 179);
+            txtPrueba.Name = "txtPrueba";
+            txtPrueba.Size = new Size(125, 27);
+            txtPrueba.TabIndex = 3;
+            // 
             // frmDatos
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1087, 552);
+            Controls.Add(txtPrueba);
             Controls.Add(button1);
             Controls.Add(label1);
             Controls.Add(dgvDatos);
@@ -137,5 +146,6 @@
         private DataGridViewTextBoxColumn X_Cuadrado;
         private DataGridViewTextBoxColumn Y_Cuadrado;
         private DataGridViewTextBoxColumn XPORY;
+        private TextBox txtPrueba;
     }
 }
