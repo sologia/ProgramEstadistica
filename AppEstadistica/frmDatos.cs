@@ -49,36 +49,31 @@ namespace AppEstadistica
 
         private void dgvDatos_CellValueChanged(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.RowIndex >= 0)
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            for (int i = 0; i < dgvDatos.Rows.Count; i++)
             {
-                if (e.ColumnIndex == 0)
-                {
-                    if (double.TryParse(dgvDatos.Rows[e.RowIndex].Cells[0].Value?.ToString(), out double valorX))
+
+                    if (double.TryParse(dgvDatos.Rows[i].Cells[0].Value?.ToString(), out double valorX))
                     {
-                        double ResultadoX = Math.Pow(valorX, 2);
-                        dgvDatos.Rows[e.RowIndex].Cells[2].Value = ResultadoX;
+                        double resultadoX = Math.Pow(valorX, 2);
+                        dgvDatos.Rows[i].Cells[2].Value = resultadoX;
                     }
-                    else
+
+
+                    if (double.TryParse(dgvDatos.Rows[i].Cells[1].Value?.ToString(), out double valorY))
                     {
-                        //comprobar que sea un numero, sino lo elimina
-                        dgvDatos.Rows[e.RowIndex].Cells[2].Value = null;
+                        double resultadoY = Math.Pow(valorY, 2);
+                        dgvDatos.Rows[i].Cells[3].Value = resultadoY;
                     }
+
+                if (double.TryParse(dgvDatos.Rows[i].Cells[0].Value?.ToString(), out double valorX2) && double.TryParse(dgvDatos.Rows[i].Cells[1].Value?.ToString(), out double valorY2)) {
+                    double ResultadoXY = valorX2 * valorY2;
+                    dgvDatos.Rows[i].Cells[4].Value = ResultadoXY;
                 }
 
-                else if (e.ColumnIndex == 1)
-                {
-                    if (double.TryParse(dgvDatos.Rows[e.RowIndex].Cells[1].Value?.ToString(), out double valorY))
-                    {
-                        double ResultadoY = Math.Pow(valorY, 2);
-
-                        dgvDatos.Rows[e.RowIndex].Cells[3].Value = ResultadoY;
-                    }
-                    else
-                    {
-                        //comprobar que sea un numero, sino lo elimina
-                        dgvDatos.Rows[e.RowIndex].Cells[3].Value = null;
-                    }
-                }
             }
         }
     }

@@ -20,10 +20,18 @@ namespace AppEstadistica
 
         private void button1_Click(object sender, EventArgs e)
         {
-                //agregar excepcion aca pls
+            //agregar excepcion aca pls
+            try
+            {
                 Cantidad = int.Parse(txtCantidad.Text);
                 frmDatos frmDatos = new frmDatos(Cantidad);
                 frmDatos.ShowDialog();
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
             
 
         }

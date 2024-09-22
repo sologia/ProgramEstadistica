@@ -29,29 +29,50 @@
         private void InitializeComponent()
         {
             dgvDatos = new DataGridView();
+            label1 = new Label();
+            button1 = new Button();
             EjeX = new DataGridViewTextBoxColumn();
             EjeY = new DataGridViewTextBoxColumn();
             X_Cuadrado = new DataGridViewTextBoxColumn();
             Y_Cuadrado = new DataGridViewTextBoxColumn();
             XPORY = new DataGridViewTextBoxColumn();
-            label1 = new Label();
-            button1 = new Button();
             ((System.ComponentModel.ISupportInitialize)dgvDatos).BeginInit();
             SuspendLayout();
             // 
             // dgvDatos
             // 
+            dgvDatos.BackgroundColor = Color.White;
+            dgvDatos.BorderStyle = BorderStyle.None;
             dgvDatos.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvDatos.Columns.AddRange(new DataGridViewColumn[] { EjeX, EjeY, X_Cuadrado, Y_Cuadrado, XPORY });
             dgvDatos.Location = new Point(12, 179);
             dgvDatos.Name = "dgvDatos";
             dgvDatos.RowHeadersWidth = 51;
-            dgvDatos.Size = new Size(678, 361);
+            dgvDatos.Size = new Size(677, 361);
             dgvDatos.TabIndex = 0;
             dgvDatos.CellContentClick += dgvDatos_CellContentClick;
             dgvDatos.CellValueChanged += dgvDatos_CellValueChanged;
             dgvDatos.ColumnAdded += dgvDatos_ColumnAdded;
             dgvDatos.RowsAdded += dgvDatos_RowsAdded;
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Location = new Point(12, 118);
+            label1.Name = "label1";
+            label1.Size = new Size(346, 20);
+            label1.TabIndex = 1;
+            label1.Text = "Por favor, Inserte Los datos del eje X y Y en el Panel";
+            // 
+            // button1
+            // 
+            button1.Location = new Point(385, 114);
+            button1.Name = "button1";
+            button1.Size = new Size(94, 29);
+            button1.TabIndex = 2;
+            button1.Text = "Calcular";
+            button1.UseVisualStyleBackColor = true;
+            button1.Click += button1_Click;
             // 
             // EjeX
             // 
@@ -72,6 +93,7 @@
             X_Cuadrado.HeaderText = "X^2";
             X_Cuadrado.MinimumWidth = 6;
             X_Cuadrado.Name = "X_Cuadrado";
+            X_Cuadrado.ReadOnly = true;
             X_Cuadrado.Width = 125;
             // 
             // Y_Cuadrado
@@ -79,6 +101,7 @@
             Y_Cuadrado.HeaderText = "Y^2";
             Y_Cuadrado.MinimumWidth = 6;
             Y_Cuadrado.Name = "Y_Cuadrado";
+            Y_Cuadrado.ReadOnly = true;
             Y_Cuadrado.Width = 125;
             // 
             // XPORY
@@ -86,25 +109,8 @@
             XPORY.HeaderText = "X*Y";
             XPORY.MinimumWidth = 6;
             XPORY.Name = "XPORY";
+            XPORY.ReadOnly = true;
             XPORY.Width = 125;
-            // 
-            // label1
-            // 
-            label1.AutoSize = true;
-            label1.Location = new Point(12, 118);
-            label1.Name = "label1";
-            label1.Size = new Size(346, 20);
-            label1.TabIndex = 1;
-            label1.Text = "Por favor, Inserte Los datos del eje X y Y en el Panel";
-            // 
-            // button1
-            // 
-            button1.Location = new Point(385, 114);
-            button1.Name = "button1";
-            button1.Size = new Size(94, 29);
-            button1.TabIndex = 2;
-            button1.Text = "Calcular";
-            button1.UseVisualStyleBackColor = true;
             // 
             // frmDatos
             // 
