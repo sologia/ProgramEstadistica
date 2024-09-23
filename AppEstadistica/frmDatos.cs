@@ -1,9 +1,11 @@
-﻿using System;
+﻿using Entidades;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -17,7 +19,8 @@ namespace AppEstadistica
         {
             InitializeComponent();
             NFilas = Cantidad;
-            NFilas = NFilas + 1;
+
+            dgvDatos.Rows.Add(NFilas);
         }
 
         private void dgvDatos_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -29,17 +32,7 @@ namespace AppEstadistica
         {
 
 
-            try
-            {
-                if (dgvDatos.Rows.Count > NFilas)
-                {
-                    dgvDatos.AllowUserToAddRows = false;
-                }
-            }
-            catch (Exception)
-            {
-                MessageBox.Show($"Solo se permiten {NFilas} filas.");
-            }
+
         }
 
         private void dgvDatos_ColumnAdded(object sender, DataGridViewColumnEventArgs e)
@@ -58,6 +51,7 @@ namespace AppEstadistica
             double SumaXCuadrado = 0;
             double SumaYCuadrado = 0;
             double SumaXY = 0;
+           Calculos calculos = new Calculos();
             for (int i = 0; i < dgvDatos.Rows.Count; i++)
             {
 
@@ -86,6 +80,13 @@ namespace AppEstadistica
 
             }
             txtPrueba.Text = Convert.ToString(SumaXY);
+            b1txt.Text = Convert.ToString((Math.Truncate( calculos.b1(SumaXY,SumaX,SumaY,SumaXCuadrado,NFilas)*10000))/10000);
+
+            b0txt.Text = Convert.ToString((Math.Truncate(calculos.b0()*10000))/10000);
+            RVtxt.Text = Convert.ToString((Math.Truncate(calculos.RV1(SumaYCuadrado) * 10000))/10000); 
+            Rcuadradotxt.Text = Convert.ToString((Math.Truncate(calculos.R2() * 10000))/10000);
+            Rtxt.Text = Convert.ToString((Math.Truncate(calculos.R() * 10000))/10000);
+            Ttxt.Text = Convert.ToString((Math.Truncate(calculos.t_student() * 10000)) / 10000);
         }
     }
 }
