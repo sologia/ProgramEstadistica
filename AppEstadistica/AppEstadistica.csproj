@@ -9,6 +9,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Include="C:\Users\solor\Documents\frmDatos.cs" Link="frmDatos.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\Entidades\Entidades.csproj" />
   </ItemGroup>
 
